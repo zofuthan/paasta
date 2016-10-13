@@ -32,6 +32,10 @@ def add_subparser(subparsers):
              'Jenkins job name, will be stripped.',
     )
     list_parser.add_argument(
+        '-k', '--commit',
+        help='Git commit sha.',
+    )
+    list_parser.add_argument(
         '-d', '--soa-dir',
         dest='soa_dir',
         metavar='SOA_DIR',
@@ -49,7 +53,7 @@ def load_performance_check_config(service, soa_dir):
     )
 
 
-def submit_performance_check_job(service, soa_dir):
+def submit_performance_check_job(service, commit, soa_dir):
     performance_check_config = load_performance_check_config(service, soa_dir)
 
     if not performance_check_config:
