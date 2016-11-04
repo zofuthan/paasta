@@ -587,7 +587,7 @@ def status_for_results(healthcheck_results):
 
 
 def print_results_for_healthchecks(summary, ok, results, verbose, indent=2):
-    print summary
+    print(summary)
     if verbose >= 1:
         for health_check_result in results:
             if health_check_result.healthy:
@@ -730,7 +730,7 @@ def main():
 
     healthy_exit = True if all([mesos_ok, marathon_ok, chronos_ok]) else False
 
-    print "Master paasta_tools version: {0}".format(__version__)
+    print("Master paasta_tools version: {0}".format(__version__))
     print_results_for_healthchecks(mesos_summary, mesos_ok, all_mesos_results, args.verbose)
     if args.verbose > 1:
         for grouping in args.groupings:
